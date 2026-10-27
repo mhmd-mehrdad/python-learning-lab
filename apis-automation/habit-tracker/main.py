@@ -1,10 +1,9 @@
-import os
 import requests
 from datetime import datetime
 
-USERNAME = os.environ["PIXELA_USERNAME"]
-TOKEN = os.environ["PIXELA_TOKEN"]
-GRAPH_ID = "graph1"
+USERNAME = "YOUR USERNAME"
+TOKEN = "YOUR SELF GENERATED TOKEN"
+GRAPH_ID = "YOUR GRAPH ID"
 
 pixela_endpoint = "https://pixe.la/v1/users"
 
@@ -15,37 +14,51 @@ user_params = {
     "notMinor": "yes",
 }
 
-# response = requests.post(url=pixela_endpoint, json=user_params)
-# print(response.text)
 
 graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
 graph_config = {
     "id": GRAPH_ID,
-    "name": "Code Graph",
-    "unit": "commit",
-    "type": "int",
-    "color": "ajisai",
+    "name": "Cycling Graph",
+    "unit": "Km",
+    "type": "float",
+    "color": "ajisai"
 }
 
 headers = {
-    "X-USER-TOKEN": TOKEN,
+    "X-USER-TOKEN": TOKEN
 }
 
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 # print(response.text)
 
-
 pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
 today = datetime.now()
+# print(today.strftime("%Y%m%d"))
 
-pixel_config = {
+pixel_data = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "12",
+    "quantity": input("How many kilometers did you cycle today? "),
 }
 
-# response = requests.post(url=pixel_creation_endpoint, json=pixel_config, headers=headers)
+response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+print(response.text)
+
+update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+
+new_pixel_data = {
+    "quantity": "4.5"
+}
+
+## PUT
+# response = requests.put(url=update_endpoint, json=new_pixel_data, headers=headers)
 # print(response.text)
 
-update_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/20260805"
+
+delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+
+
+## DELETE
+# response = requests.delete(url=delete_endpoint, headers=headers)
+# print(response.text)
