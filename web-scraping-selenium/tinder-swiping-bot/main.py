@@ -1,69 +1,60 @@
-import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from time import sleep
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
 
+TINDOG_URL = "<PASTE YOUR PERSONAL TINDOG URL HERE>"
+FACEBARK_EMAIL = "any-email@example.com"
+FACEBARK_PASSWORD = "anything"
 
-ACCOUNT_EMAIL = os.environ["ACCOUNT_EMAIL"]
-ACCOUNT_PASSWORD = os.environ["ACCOUNT_PASSWORD"]
-TINDOG_URL = os.environ["DATING_APP_URL"]
-
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_experimental_option("detach", True)
-driver = webdriver.Chrome(options=chrome_options)
+driver = webdriver.Chrome()
 driver.get(TINDOG_URL)
 
+# open the login modal and click Facebark
 sleep(2)
-login_button = driver.find_element(By.XPATH, value="/html/body/header/button")
-login_button.click()
-
+driver.find_element(By.XPATH, value='//*[text()="Log in"]').click()
 sleep(1)
-login_with_facebook_button = driver.find_element(By.XPATH, value='//*[@id="login-modal"]/div/div/div/button[1]')
-login_with_facebook_button.click()
+driver.find_element(By.CLASS_NAME, value='btn-facebark').click()
 
+# Facebark login in popup
+sleep(2)
 base_window = driver.window_handles[0]
-facebook_login_window = driver.window_handles[1]
-driver.switch_to.window(facebook_login_window)
+facebark_window = driver.window_handles[1]
+driver.switch_to.window(facebark_window)
+print(driver.title)
 
-wait = WebDriverWait(driver, 2)
-
-facebook_email_input = wait.until(ec.presence_of_element_located((By.ID, "email")))
-facebook_email_input.clear()
-facebook_email_input.send_keys(ACCOUNT_EMAIL)
-
-facebook_password_input = wait.until(ec.presence_of_element_located((By.ID, "pass")))
-facebook_password_input.clear()
-facebook_password_input.send_keys(ACCOUNT_PASSWORD)
-
-facebook_login_button = driver.find_element(By.XPATH, value="/html/body/div[2]/div/form/button")
-facebook_login_button.click()
-
-sleep(1)
+email = driver.find_element(By.ID, value='email')
+password = driver.find_element(By.ID, value='pass')
+email.send_keys(FACEBARK_EMAIL)
+password.send_keys(FACEBARK_PASSWORD)
+password.send_keys(Keys.ENTER)
 
 driver.switch_to.window(base_window)
+print(driver.title)
 
-allow_location_button = driver.find_element(By.XPATH, value="/html/body/main/div/div/form/button")
-allow_location_button.click()
-
+# dismiss the three popups
+sleep(3)
+driver.find_element(By.XPATH, value='//button[text()="Allow"]').click()
 sleep(1)
-
-not_interested_button = driver.find_element(By.XPATH, value="/html/body/main/div/div/form/button[2]")
-not_interested_button.click()
-
+driver.find_element(By.XPATH, value='//button[text()="Not interested"]').click()
 sleep(1)
+driver.find_element(By.XPATH, value='//button[text()="I Accept"]').click()
 
-accept_cookies_button = driver.find_element(By.XPATH, value="/html/body/main/div/div/form/button")
-accept_cookies_button.click()
+# like all 20 dogs
+for n in range(20):
+    sleep(1)
+    try:
+        like_button = driver.find_element(By.CLASS_NAME, value='btn-like')
+        like_button.click()
+    except ElementClickInterceptedException:
+        # Match popup is in the way — dismiss it and continue
+        try:
+            driver.find_element(By.CSS_SELECTOR, value='.match-popup a').click()
+        except NoSuchElementException:
+            sleep(2)
+    except NoSuchElementException:
+        # Like button not loaded yet OR all dogs have been swiped — wait and retry
+        sleep(2)
 
-sleep(2)
-
-like_button = WebDriverWait(driver, 10).until(
-    ec.presence_of_element_located((By.CLASS_NAME, "btn-like"))
-)
-
-driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", like_button)
-
-sleep(1)
-like_button.click()
+driver.quit()
