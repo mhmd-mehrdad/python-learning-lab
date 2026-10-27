@@ -14,7 +14,11 @@ My Python programming journey
 ## Projects
 
 ### Object-Oriented Programming & GUI
-- U.S. States Guessing Game
+
+| Project | Key Concepts |
+|---------|--------------|
+| [Pong Game](oop-games-gui/pong-game/) | OOP, Turtle Graphics, Collision Detection |
+| [U.S. States Game](oop-games-gui/us-states-game/) | Pandas, Turtle Graphics, CSV |
 
 ## Technologies
 Python, Pandas, Turtle, Tkinter, Requests,
