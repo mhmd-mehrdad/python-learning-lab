@@ -57,11 +57,3 @@ class Snake:
         self.segments.clear()
         self.create_snake()
         self.head = self.segments[0]
-
-
-
-
-
-
-
-

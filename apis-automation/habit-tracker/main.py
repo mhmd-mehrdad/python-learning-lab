@@ -49,4 +49,3 @@ pixel_config = {
 # print(response.text)
 
 update_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/20260805"
-

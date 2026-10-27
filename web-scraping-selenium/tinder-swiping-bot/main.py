@@ -67,6 +67,3 @@ driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", like_bu
 
 sleep(1)
 like_button.click()
-
-
-

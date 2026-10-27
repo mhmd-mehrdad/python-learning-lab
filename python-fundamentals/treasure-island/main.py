@@ -13,7 +13,7 @@ print(r"""
                                ||
                             /ssssssss.
                       /sssssssSSSSssssssssss.
-        /\         /sssssSSSSSSSSSSSSSSSssssssssssss.              
+        /\         /sssssSSSSSSSSSSSSSSSssssssssssss.
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 *******************************************************************************

@@ -57,5 +57,3 @@ while True:
 
 # items = driver.find_elements()
 # cookie = driver.find_element(By.ID, value="bigCookie")
-
-

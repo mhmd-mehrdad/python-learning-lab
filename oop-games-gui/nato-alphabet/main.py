@@ -8,4 +8,3 @@ print(the_wanted_dict)
 word = input("write your name:")
 the_wanted_list = [the_wanted_dict[letter.upper()] for letter in word]
 print(the_wanted_list)
-

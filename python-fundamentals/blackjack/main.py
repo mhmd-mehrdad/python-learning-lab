@@ -1,13 +1,13 @@
 import random
 logo = r"""
-.------.            _     _            _    _            _    
-|A_  _ |.          | |   | |          | |  (_)          | |   
+.------.            _     _            _    _            _
+|A_  _ |.          | |   | |          | |  (_)          | |
 |( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
 | \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
-|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
+|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   <
 `-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
-      |  \/ K|                            _/ |                
-      `------'                           |__/           
+      |  \/ K|                            _/ |
+      `------'                           |__/
 """
 
 
@@ -30,7 +30,7 @@ player_cards = []
 computer_cards = []
 
 def game_rules(player_cards, computer_cards, permit):
-    
+
     while permit=="y":
         player_cards.append(random.randint(1, 11))
         print(f"your cards: {player_cards}, current score: {total_score(player_cards)}\n"
@@ -68,4 +68,3 @@ while permission=="y":
     second_permission = input("type 'y' to get another card, type 'n' to pass: ")
     game_rules(player_cards, computer_cards, second_permission)
     permission = input("do you wanna play ? y or n : ")
-

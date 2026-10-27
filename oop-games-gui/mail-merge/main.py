@@ -6,10 +6,10 @@ Path("Output/ReadyToSend").mkdir(parents=True, exist_ok=True)
 #for each name in invited_names.txt
 #Replace the [name] placeholder with the actual name.
 #Save the letters in the folder "ReadyToSend".
-    
 
-    
-        
+
+
+
 
 with open("Input/Letters/starting_letter.txt") as file:
     letter = file.read()

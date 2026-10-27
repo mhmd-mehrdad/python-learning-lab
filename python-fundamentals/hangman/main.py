@@ -104,7 +104,3 @@ while "_" in display:
         print(stages[lives])
         lives-=1
     show_display()
-
-
-
-

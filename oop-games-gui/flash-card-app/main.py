@@ -64,4 +64,3 @@ next_card()
 
 
 window.mainloop()
-

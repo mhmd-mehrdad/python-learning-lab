@@ -51,8 +51,8 @@ print(difference_percentage)
 if difference_percentage >= 5:
     print("Get News")
 
-    ## STEP 2: https://newsapi.org/ 
-    # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+    ## STEP 2: https://newsapi.org/
+    # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
 
 
 
@@ -64,13 +64,4 @@ data = new_response.json()
 
 
     ## STEP 3: Use twilio.com/docs/sms/quickstart/python
-    #to send a separate message with each article's title and description to your phone number. 
-
-
-
-
-
-
-
-
-
+    #to send a separate message with each article's title and description to your phone number.

@@ -27,6 +27,3 @@ for hour_data in weather_data["list"]:
 
 if will_rain:
     print("bring an umbrella")
-
-
-

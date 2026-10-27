@@ -26,8 +26,3 @@ print(movies_list)
 with open("notes.txt", "w", encoding="utf-8") as file:
     for movie in movies_list:
         file.write(movie + "\n")
-
-
-
-
-
