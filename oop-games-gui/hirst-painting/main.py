@@ -1,32 +1,27 @@
-import turtle
-
-import colorgram
+import turtle as turtle_module
 import random
-from turtle import Turtle, Screen
 
+turtle_module.colormode(255)
+tim = turtle_module.Turtle()
+tim.speed("fastest")
+tim.penup()
+tim.hideturtle()
+color_list = [(202, 164, 109), (238, 240, 245), (150, 75, 49), (223, 201, 135), (52, 93, 124), (172, 154, 40), (140, 30, 19), (133, 163, 185), (198, 91, 71), (46, 122, 86), (72, 43, 35), (145, 178, 148), (13, 99, 71), (233, 175, 164), (161, 142, 158), (105, 74, 77), (55, 46, 50), (183, 205, 171), (36, 60, 74), (18, 86, 90), (81, 148, 129), (148, 17, 20), (14, 70, 64), (30, 68, 100), (107, 127, 153), (174, 94, 97), (176, 192, 209)]
+tim.setheading(225)
+tim.forward(300)
+tim.setheading(0)
+number_of_dots = 100
 
+for dot_count in range(1, number_of_dots + 1):
+    tim.dot(20, random.choice(color_list))
+    tim.forward(50)
 
+    if dot_count % 10 == 0:
+        tim.setheading(90)
+        tim.forward(50)
+        tim.setheading(180)
+        tim.forward(500)
+        tim.setheading(0)
 
-turtle.colormode(255)
-rgb_colors = [(219, 173, 124), (159, 180, 190), (134, 73, 53), (49, 102, 153), (118, 82, 93), (179, 140, 150), (41, 46, 65), (162, 104, 151), (126, 173, 114), (83, 96, 183), (67, 9, 27), (81, 133, 107), (231, 188, 138), (52, 62, 79), (195, 90, 72), (116, 43, 58), (60, 41, 28), (92, 144, 117), (70, 67, 52), (182, 187, 207), (211, 181, 189)]
-
-mamad = Turtle()
-mamad.shape("turtle")
-mamad.speed(0)
-mamad.color("green")
-
-
-def draw_the_damn_dot():
-    mamad.color(random.choice(rgb_colors))
-    mamad.pendown()
-    mamad.dot(20)
-    mamad.penup()
-    mamad.forward(50)
-
-print(mamad.pos())
-for _ in range(2):
-    draw_the_damn_dot()
-
-
-sc = Screen()
-sc.exitonclick()
+screen = turtle_module.Screen()
+screen.exitonclick()
