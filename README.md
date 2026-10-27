@@ -17,6 +17,7 @@ My Python programming journey
 
 | Project | Key Concepts |
 |---------|--------------|
+| [Turtle Race](oop-games-gui/turtle-race/) | Turtle Graphics, Randomization, Event Handling |
 | [Pong Game](oop-games-gui/pong-game/) | OOP, Turtle Graphics, Collision Detection |
 | [U.S. States Game](oop-games-gui/us-states-game/) | Pandas, Turtle Graphics, CSV |
 
