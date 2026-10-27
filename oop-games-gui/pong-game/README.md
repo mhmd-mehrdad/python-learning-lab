@@ -1,63 +1,33 @@
-# 🏓 Pong Game
+# Pong Game
 
-A classic two-player Pong game developed in Python using the built-in Turtle graphics module.
+A local two-player Pong game with paddles, scoring, and accelerating rallies.
 
 ## Features
 
-- Two-player local gameplay
 - Keyboard-controlled paddles
-- Ball movement and collision detection
-- Ball bouncing off walls and paddles
-- Automatic score tracking
-- Increasing ball speed during rallies
+- Wall and paddle collisions
+- Automatic scoring
+- Ball acceleration during a rally
 
 ## Technologies
 
-- Python 3
-- Turtle Graphics
-- Object-Oriented Programming (OOP)
+Python, Turtle, time, random.
 
-## Project Structure
-
-```text
-pong-game/
-├── main.py
-├── ball.py
-├── paddle.py
-├── scoreboard.py
-└── README.md
-```
-
-## How to Run
-
-**1.** Make sure Python 3 is installed.
-
-**2.** Navigate to the project directory:
+## Installation
 
 ```powershell
 cd oop-games-gui/pong-game
+python -m venv .venv
 ```
 
-**3.** Run the game:
+Use Python 3.10 or newer. On macOS/Linux, the environment interpreter is `.venv/bin/python`. A desktop session and Python with Tk support are required; Tkinter and Turtle are included with Tk-enabled Python installations.
+
+## Usage
+
+Run from this project directory so relative resource paths resolve correctly:
 
 ```powershell
-python main.py
+.\.venv\Scripts\python.exe main.py
 ```
 
-No third-party dependencies are required.
-
-## Controls
-
-| Player | Move Up | Move Down |
-|--------|---------|-----------|
-| Left | W | S |
-| Right | ↑ | ↓ |
-
-## Concepts Practiced
-
-- Object-oriented programming
-- Classes and inheritance
-- Event handling and keyboard input
-- Collision detection
-- Game loops and animations
-- Managing game state
+Left player: W/S. Right player: Up/Down arrows. Close the window to stop.

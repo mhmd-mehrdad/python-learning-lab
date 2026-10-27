@@ -1,52 +1,37 @@
-# 🐢 Turtle Race
+# Snake Game
 
-A simple racing game built with Python's Turtle graphics module, where players predict which turtle will win a randomized race.
+An object-oriented Snake game with food, growth, collision resets, and a saved high score.
 
 ## Features
 
-- Multiple colored turtles competing in a race
-- Player betting system to predict the winner
-- Randomized turtle movement
-- Automatic winner detection
-- Graphical interface using Turtle
+- Arrow-key movement
+- Food collection and growth
+- Wall and self-collision resets
+- High-score persistence
 
 ## Technologies
 
-- Python 3
-- Turtle Graphics
-- Random Module
+Python, Turtle, time, random.
 
-## Project Structure
+## Installation
 
-```text
-turtle-race/
-├── main.py
-└── README.md
+```powershell
+cd oop-games-gui/snake-game
+python -m venv .venv
 ```
 
-## How to Run
+Use Python 3.10 or newer. On macOS/Linux, the environment interpreter is `.venv/bin/python`. A desktop session and Python with Tk support are required; Tkinter and Turtle are included with Tk-enabled Python installations.
 
-1. Make sure Python 3 is installed.
-2. Navigate to the project directory.
-3. Run:
+## Usage
 
-```bash
-python main.py
+Run from this project directory so relative resource paths resolve correctly:
+
+```powershell
+.\.venv\Scripts\python.exe main.py
 ```
 
-No third-party dependencies are required.
+Use the arrow keys to steer. Collisions reset the snake and score. Close the window to stop.
 
-## How to Play
+## Saved score
 
-1. Enter the color of the turtle you think will win.
-2. Watch the turtles race across the screen.
-3. The first turtle to reach the finish line wins.
-4. See whether your prediction was correct.
-
-## Concepts Practiced
-
-- Turtle graphics and coordinate positioning
-- Working with Python objects
-- Random number generation
-- Loops and conditional statements
-- User input and basic game logic
+`data.txt` starts at zero and stores the local high score. The initial file is included because the program reads it on startup. Runtime changes need not be committed.

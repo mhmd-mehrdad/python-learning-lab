@@ -1,20 +1,27 @@
-
-# Python
+# Python and development environments
 __pycache__/
-*.pyc
-
-# Virtual environments
+*.py[cod]
 .venv/
 venv/
-
-# IDE
 .idea/
 .vscode/
+*.log
 
-# Secrets
+# Private configuration and authenticated browser state
 .env
 .env.*
 !.env.example
+browser.json
+chrome_profile/
+*.session
+*.sqlite-journal
 
-# Logs
-*.log
+# Local platform metadata and generated content
+.DS_Store
+__MACOSX/
+._*
+.sass-cache/
+states_to_learn.csv
+words_to_learn.csv
+web-scraping-selenium/top-100-movies-scraper/notes.txt
+oop-games-gui/mail-merge/Output/
